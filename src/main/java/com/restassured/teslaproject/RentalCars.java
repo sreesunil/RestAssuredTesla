@@ -2,6 +2,7 @@ package com.restassured.teslaproject;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 import org.testng.annotations.Test;
@@ -19,7 +20,8 @@ public class RentalCars {
 		Response res = RestAssured.given().headers("contentType", "application/json").when().get("/carinfo");
 
 		res.then().assertThat().statusCode(200).extract().response();
-
+		
+       
 		System.out.println(res.asPrettyString());
 
 	}
@@ -37,7 +39,7 @@ public class RentalCars {
 		String color = "Blue";
 
 		List<String> lmake = res.jsonPath().getList("Car.make");
-		System.out.println(lmake);
+		System.out.println("Return the list of all Cars : " + lmake);
 		
 		int setIndex =0;
 
@@ -93,6 +95,42 @@ public class RentalCars {
 		Collections.sort(alperdayrentdiscount);
 		System.out.println("Return all cars starting from lowest perdayrent with after discount : " +alperdayrentdiscount);
 		
+		
+	}
+	@Test
+	public void returnsCarWithHighestRevenueForFullYear() {
+		
+		
+		RestAssured.baseURI = "https://67f509a9-98f1-4548-b221-7bde67c577a8.mock.pstmn.io";
+
+		Response res = RestAssured.given().headers("contentType", "application/json").when().get("/carinfo");
+
+		res.then().assertThat().statusCode(200).extract().response();
+		List<Double>lmake = res.jsonPath().getList("Car.make");
+		ArrayList<carRevenue> highestRevenue = new ArrayList<>();
+		int setIndex = 0;
+		List<Double> lcarmetrics = res.jsonPath().getList("Car.metrics");
+		System.out.println("Car Metrics : " + lcarmetrics);
+		for(int i = 0; i<lcarmetrics.size();i++) {
+			String vinnumber = res.jsonPath().getString("Car["+i+"].vin");
+			Double yoymaintenancecost = res.jsonPath().getDouble("Car["+i+"].metrics.yoymaintenancecost");
+			Double depreciation = res.jsonPath().getDouble("Car["+i+"].metrics.depreciation");
+			int yeartodate = res.jsonPath().getInt("Car["+i+"].metrics.rentalcount.yeartodate");
+			Double perDayRentPrice = res.jsonPath().getDouble("Car["+i+"].perdayrent.Price");
+			Double perDayRentDiscount = res.jsonPath().getDouble("Car["+i+"].perdayrent.Discount");
+			Double perDayRentandDiscount = (perDayRentPrice-(perDayRentPrice*perDayRentDiscount/100));
+			
+			Double carRevenue = ((yeartodate*perDayRentandDiscount)-(yoymaintenancecost+depreciation));
+			highestRevenue.add(new carRevenue(vinnumber ,carRevenue));
+		}
+		
+		Collections.sort(highestRevenue,Collections.reverseOrder());
+		System.out.println("Highest Revenue : ");
+		Iterator<carRevenue> it = highestRevenue.iterator();
+		while (it.hasNext()){
+			carRevenue object = (carRevenue)it.next();
+			System.out.println("Vin : "+object.sVin+" CarRevenue : " +object.fCarRevenue );
+		}
 		
 	}
 

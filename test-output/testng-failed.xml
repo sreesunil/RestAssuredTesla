@@ -5,7 +5,7 @@
     <classes>
       <class name="com.restassured.teslaproject.RentalCars">
         <methods>
-          <include name="printTeslaBlueColorAndNotes"/>
+          <include name="returnsCarWithHighestRevenueForFullYear"/>
         </methods>
       </class> <!-- com.restassured.teslaproject.RentalCars -->
     </classes>

@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\smann\AppData\Local\Temp\testng-eclipse-1602650947\testng-customsuite.xml</span>
+                    <span>C:\Users\smann\AppData\Local\Temp\testng-eclipse-1171980968\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">4 methods,   4 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -114,6 +114,11 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="com.restassured.teslaproject.RentalCars" class="method navigator-link" hash-for-method="printTeslaBlueColorAndNotes">printTeslaBlueColorAndNotes</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.restassured.teslaproject.RentalCars" class="method navigator-link" hash-for-method="returnsCarWithHighestRevenueForFullYear">returnsCarWithHighestRevenueForFullYear</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -155,12 +160,19 @@
                   <span class="method-name">printTeslaBlueColorAndNotes</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="returnsCarWithHighestRevenueForFullYear">
+                  </a> <!-- returnsCarWithHighestRevenueForFullYear -->
+                  <span class="method-name">returnsCarWithHighestRevenueForFullYear</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\smann\AppData\Local\Temp\testng-eclipse-1602650947\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\smann\AppData\Local\Temp\testng-eclipse-1171980968\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -209,24 +221,28 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(4);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'carsWithLowestPerDayRent')
 data.setCell(0, 2, 'com.restassured.teslaproject.RentalCars')
-data.setCell(0, 3, 3843);
+data.setCell(0, 3, 4721);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'getdata')
+data.setCell(1, 1, 'returnsCarWithHighestRevenueForFullYear')
 data.setCell(1, 2, 'com.restassured.teslaproject.RentalCars')
-data.setCell(1, 3, 968);
+data.setCell(1, 3, 1718);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'printTeslaBlueColorAndNotes')
+data.setCell(2, 1, 'getdata')
 data.setCell(2, 2, 'com.restassured.teslaproject.RentalCars')
-data.setCell(2, 3, 823);
+data.setCell(2, 3, 1362);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'printTeslaBlueColorAndNotes')
+data.setCell(3, 2, 'com.restassured.teslaproject.RentalCars')
+data.setCell(3, 3, 779);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 5 seconds</span>
+              <span class="suite-total-time">Total running time: 8 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -259,11 +275,15 @@ return data;
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">getdata</span>
-                <span class="method-start">3856 ms</span>
+                <span class="method-start">4728 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">printTeslaBlueColorAndNotes</span>
-                <span class="method-start">4827 ms</span>
+                <span class="method-start">6095 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">returnsCarWithHighestRevenueForFullYear</span>
+                <span class="method-start">6877 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

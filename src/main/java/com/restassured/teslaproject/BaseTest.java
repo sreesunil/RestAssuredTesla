@@ -1,6 +1,8 @@
 package com.restassured.teslaproject;
 
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
@@ -15,6 +17,8 @@ public class BaseTest {
 	
 	public static int iPort = 9090;
 	public WireMockServer wireMockServer;
+	
+	public static Logger log = LogManager.getLogger(BaseTest.class.getName());
 	
 	@BeforeSuite
 	public void setUpWireMockServer() {
